@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Patient Detail</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="/bootstrap/js/bootstrap.min.js"/>
+        <link rel="stylesheet" href="/bootstrap/js/jquery-3.6.3.min.js"/>
+    </head>
+    <body>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Họ và tên</th>
+                    <th>CCCD</th>
+                    <th>Ngày Sinh</th>
+                    <th>Số điện thoại</th>
+                    <th>Giới tính</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td th:text="${patient.hoTen}"></td>
+                    <td th:text="${patient.cccd}"></td>
+                    <td th:text="${patient.ngaySinh}"></td>
+                    <td th:text="${patient.sdt}"></td>
+                    <td th:text="${patient.gioiTinh}"></td>
+                    <td th:text="${patient.email}"></td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="/guest/home" class="btn btn-primary" style="margin-top: 20px;">Trang chủ khác hàng</a>
+    </body>
+</html>

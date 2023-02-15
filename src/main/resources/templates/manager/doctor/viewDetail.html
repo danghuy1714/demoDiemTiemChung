@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Thông tin bác sĩ</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="/bootstrap/js/bootstrap.min.js"/>
+        <link rel="stylesheet" href="/bootstrap/js/jquery-3.6.3.min.js"/>
+    </head>
+    <body>
+        <p class="h1" th:text="${msg}"></p>
+        <form th:action="@{'/doctor/edit'}" method="post" th:object="${doctor}" >
+            <div class="input-group input-group-lg">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-lg">Mã định danh</span>
+                </div>
+                <input type="text" disabled class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm"
+                       th:value="${doctor.maDinhDanh}" th:field="*{maDinhDanh}">
+                <input type="hidden" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm"
+                       th:value="${doctor.maDinhDanh}" th:field="*{maDinhDanh}">
+            </div>
+            <div class="input-group input-group-lg">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-lg">Họ và tên</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" 
+                       th:value="${doctor.tenBacSi}" th:field="*{tenBacSi}">
+            </div>
+            <div class="input-group input-group-lg">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-lg">Tuổi</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" 
+                       th:value="${doctor.tuoi}" th:field="*{tuoi}">
+            </div>
+            <div class="input-group input-group-lg">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-lg">Chức danh</span>
+                </div>
+                <div class="form-group col-md-6">
+                    <select class="form-select" aria-label="Default select example" th:field="*{chucDanh}">
+                        <option th:value="${doctor.chucDanh}" th:text="${doctor.chucDanh}"></option>
+                        <option value="Bác sĩ">Bác sĩ</option>
+                        <option value="Phó khoa">Phó khoa</option>
+                        <option value="Trưởng Khoa">Trưởng khoa</option>
+                    </select>
+                </div>
+            </div>
+            <div class="input-group input-group-lg">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-lg">Số điện thoại</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" 
+                       th:value="${doctor.sdt}" th:field="*{sdt}">
+            </div>
+            
+            <button class="btn btn-outline-primary" style="margin-top:20px;">Save</button>
+        </form>
+        <a href="/doctor/home" class="btn btn-primary" style="margin-top: 20px;">Trang quản lý bác sĩ</a>
+        <a href="/doctor/list/1" class="btn btn-primary" style="margin-top: 20px;">Danh sách bác sĩ</a>
+    </body>
+</html>

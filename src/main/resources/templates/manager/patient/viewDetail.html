@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Patient Detail</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="/bootstrap/js/bootstrap.min.js"/>
+        <link rel="stylesheet" href="/bootstrap/js/jquery-3.6.3.min.js"/>
+    </head>
+    <body>
+        <p class="h1" th:text="${msg}"></p>
+        <form th:action="@{'/patient/edit'}" method="post" th:object="${patient}" >
+            <div class="input-group input-group-lg">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-lg">Mã bệnh nhân</span>
+                </div>
+                <input type="text" disabled class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm"
+                       th:value="${patient.idBenhNhan}" th:field="*{idBenhNhan}">
+                <input type="hidden" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm"
+                       th:value="${patient.idBenhNhan}" th:field="*{idBenhNhan}">
+            </div>
+            <div class="input-group input-group-lg">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-lg">Họ và tên</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" 
+                       th:value="${patient.hoTen}" th:field="*{hoTen}">
+            </div>
+            <div class="input-group input-group-lg">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-lg">Cccd</span>
+                </div>
+                <input disabled type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" 
+                       th:value="${patient.cccd}" th:field="*{cccd}">
+                <input type="hidden" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" 
+                       th:value="${patient.cccd}" th:field="*{cccd}">
+            </div>
+            <div class="input-group input-group-lg">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-lg">Ngày sinh</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" 
+                       th:value="${patient.ngaySinh}" th:field="*{ngaySinh}">
+            </div>
+            <div class="input-group input-group-lg">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-lg">Số điện thoại</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" 
+                       th:value="${patient.sdt}" th:field="*{sdt}">
+            </div>
+            <div class="input-group input-group-lg">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-lg">Giới tính</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" 
+                       th:value="${patient.gioiTinh}" th:field="*{gioiTinh}">
+            </div>
+            <div class="input-group input-group-lg">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-lg">Email</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" 
+                       th:value="${patient.email}" th:field="*{email}">
+            </div>
+            <button class="btn btn-outline-primary" style="margin-top:20px;">Save</button>
+        </form>
+        <a href="/patient/home" class="btn btn-primary" style="margin-top: 20px;">Trang quản lý thuốc tiêm</a>
+        <a href="/patient/list/1" class="btn btn-primary" style="margin-top: 20px;">Danh sách thuốc tiêm</a>
+    </body>
+</html>

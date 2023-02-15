@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="/bootstrap/js/bootstrap.min.js"/>
+        <link rel="stylesheet" href="/bootstrap/js/jquery-3.6.3.min.js"/>
+    </head>
+    <body>
+        <p class="h1" th:text="${msg}"></p>
+        <form action="/vaccine/create" method="post" th:object="${vaccine}">
+            <div class="form-row" style="margin: 20px">
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4">Tên thuốc tiêm</label>
+                    <input type="text" th:field="*{tenThuoc}" class="form-control" id="inputEmail4" placeholder="Nhập tên thuốc tiêm">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputPassword4">Số lượng</label>
+                    <input type="text" th:field="*{soLuong}" class="form-control" id="inputPassword4" placeholder="Nhập số lượng liều">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputPassword4">Số mũi cần tiêm</label>
+                    <input type="text" th:field="*{soMuiCanTiem}" class="form-control" id="inputPassword4" placeholder="Nhập số mũi cần tiêm">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4">Ngày tiêm tiếp theo (ngày)</label>
+                    <input type="text" th:field="*{soNgayTiemMuiTiep}" class="form-control" id="inputEmail4" placeholder="Nhập số ngày để tiêm mũi tiếp (Ví dụ: 30)">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputPassword4">Đơn giá (VNĐ)</label>
+                    <input type="text" th:field="*{donGia}" class="form-control" id="inputPassword4" placeholder="Nhập đơn giá (VND)">
+                </div>
+                <button class="btn btn-primary" style="margin-top: 20px;">Save</button>
+            </div>
+        </form>
+    </body>
+</html>

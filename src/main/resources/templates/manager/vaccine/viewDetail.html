@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Vaccine Detail</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="/bootstrap/js/bootstrap.min.js"/>
+        <link rel="stylesheet" href="/bootstrap/js/jquery-3.6.3.min.js"/>
+    </head>
+    <body>
+        <p class="h1" th:text="${msg}"></p>
+        <form th:action="@{'/vaccine/edit'}" method="post" th:object="${vaccine}" >
+            <div class="input-group input-group-lg">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-lg">Mã số thuốc</span>
+                </div>
+                <input disabled class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm"
+                   th:value="${vaccine.maSoThuoc}" th:field="*{maSoThuoc}">
+                <input type="hidden" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm"
+                   th:value="${vaccine.maSoThuoc}" th:field="*{maSoThuoc}">
+            </div>
+            <div class="input-group input-group-lg">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-lg">Tên thuốc</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" 
+                       th:value="${vaccine.tenThuoc}" th:field="*{tenThuoc}">
+            </div>
+            <div class="input-group input-group-lg">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-lg">Số lượng</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" 
+                       th:value="${vaccine.soLuong}" th:field="*{soLuong}">
+            </div>
+            <div class="input-group input-group-lg">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-lg">Số mũi cần </span>
+                </div>
+                <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" 
+                       th:value="${vaccine.soMuiCanTiem}" th:field="*{soMuiCanTiem}">
+            </div>
+            <div class="input-group input-group-lg">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-lg">Số ngày tiêm mũi tiếp</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" 
+                       th:value="${vaccine.soNgayTiemMuiTiep}" th:field="*{soNgayTiemMuiTiep}">
+            </div>
+            <div class="input-group input-group-lg">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-lg">Đơn giá</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" 
+                       th:value="${vaccine.donGia}" th:field="*{donGia}">
+            </div>
+            <button class="btn btn-outline-primary" style="margin-top:20px;">Save</button>
+        </form>
+        <a href="/vaccine/home" class="btn btn-primary" style="margin-top: 20px;">Trang quản lý thuốc tiêm</a>
+        <a href="/vaccine/list/1" class="btn btn-primary" style="margin-top: 20px;">Danh sách thuốc tiêm</a>
+    </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Tìm kiếm bằng cccd</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="/bootstrap/js/bootstrap.min.js"/>
+        <link rel="stylesheet" href="/bootstrap/js/jquery-3.6.3.min.js"/>
+    </head>
+    <body>
+        <form action="/patient/searchcccd" method="get">
+            <div class="input-group input-group-lg">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-lg">Cccd</span>
+                </div>
+                <input type="text" name="cccd" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+                
+            </div>
+            <button class="btn btn-outline-primary" style="margin-top:20px;">Tìm kiếm</button>
+            
+        </form>
+        <a href="/patient/home" class="btn btn-primary" style="margin-top: 20px;">Trang khách hàng</a>
+        <table border="1" class="table" style="margin-top: 50px;">
+            <thead>
+                <tr>
+                    <th scope="col">Mã bệnh nhân</th>
+                    <th scope="col">Họ và tên</th>
+                    <th scope="col">Cccd</th>
+                    <th scope="col">Ngày sinh</th>
+                    <th scope="col">Số điện thoại</th>
+                    <th scope="col">Giới tính</th>
+                    <th scope="col">Email</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr th:each="patient : ${list}">
+                    <td th:text="${patient.idBenhNhan}"></td>
+                    <td th:text="${patient.hoTen}"></td>
+                    <td th:text="${patient.cccd}"></td>
+                    <td th:text="${patient.ngaySinh}"></td>
+                    <td th:text="${patient.sdt}"></td>
+                    <td th:text="${patient.gioiTinh}"></td>
+                    <td th:text="${patient.email}"></td>
+                    <td><a th:href="@{'/patient/edit/' + ${patient.idBenhNhan}}">Edit</a></td>
+                    <td><a href="#">Delete</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

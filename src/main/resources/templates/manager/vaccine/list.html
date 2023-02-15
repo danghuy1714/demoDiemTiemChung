@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Danh sách thuốc tiêm</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="/bootstrap/js/bootstrap.min.js"/>
+        <link rel="stylesheet" href="/bootstrap/js/jquery-3.6.3.min.js"/>
+    </head>
+    <body>
+        <!--<p class="h1" th:text="${msg != null) ? msg}"></p>-->
+        <table border="1" class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Mã số thuốc</th>
+                    <th scope="col">Tên thuốc</th>
+                    <th scope="col">Số lượng</th>
+                    <th scope="col">Số mũi cần tiêm</th>
+                    <th scope="col">Số ngày tiêm mũi tiếp</th>
+                    <th scope="col">Đơn giá</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr th:each="vaccine : ${list}">
+                    <td th:text="${vaccine.maSoThuoc}"></td>
+                    <td th:text="${vaccine.tenThuoc}"></td>
+                    <td th:text="${vaccine.soLuong}"></td>
+                    <td th:text="${vaccine.soMuiCanTiem}"></td>
+                    <td th:text="${vaccine.soNgayTiemMuiTiep}"></td>
+                    <td th:text="${vaccine.donGia}"></td>
+                    <td><a th:href="@{'/vaccine/edit/' + ${vaccine.maSoThuoc}}">Edit</a></td>
+                    <td><a th:href="@{'/vaccine/delete/' + ${vaccine.maSoThuoc}}">Delete</a></td>
+                </tr>
+            </tbody>
+        </table>
+        <nav aria-label="...">
+            <ul class="pagination" style="margin-top:50px;">
+                <li class="page-item" th:class="${pageNumber < 2} ? disabled : page-item">
+                    <a class="page-link" th:href="@{'/vaccine/list/' + ${pageNumber - 1}}" tabindex="-1">Previous</a>
+                </li>
+                <li class="page-item" th:class="${pageNumber == 1} ? active"><a class="page-link" href="/vaccine/list/1">1</a></li>
+
+                <li th:if="${pageNumber > 1 && pageNumber < pageMax}" class="page-item active">
+                    <a class="page-link" th:href="@{'/vaccine/list/' + ${pageNumber}}" th:text="${pageNumber}"></a>
+                </li>
+                <li class="page-item" th:class="${pageNumber == pageMax} ? active"><a class="page-link" th:href="@{'/vaccine/list/' + ${pageMax}}" 
+                                                                                      th:text="${pageMax}" th:if="${pageMax > 1}"></a></li>
+                <li class="page-item" th:class="${pageNumber == pageMax} ? disabled : page-item">
+                    <a class="page-link" th:href="@{'/vaccine/list/' + ${pageNumber + 1}}">Next</a>
+                </li>
+            </ul>
+        </nav>
+        <a href="/vaccine/home" class="btn btn-primary" style="margin-top: 20px;">Trang quản lý thuốc tiêm</a>
+        <p class="h1" th:text='${(msg==null)? "" : msg }'></p>
+    </body>
+</html>

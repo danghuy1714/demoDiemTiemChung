@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="/bootstrap/js/bootstrap.min.js"/>
+        <link rel="stylesheet" href="/bootstrap/js/jquery-3.6.3.min.js"/>
+    </head>
+    <body>
+        <form th:action="@{'/doctor/search'}" method="get">
+            <div class="input-group input-group-lg">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-lg">Nhập mã bác sĩ hoặc tên bác sĩ</span>
+                </div>
+                <input type="text" name="info" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+                <div class="form-group col-md-6">
+                    <label for="inputPassword4">Chức danh</label>
+                    <select class="form-select" aria-label="Default select example" name="chucDanh">
+                        <option value="Bác sĩ">Bác sĩ</option>
+                        <option value="Phó khoa">Phó khoa</option>
+                        <option value="Trưởng Khoa">Trưởng khoa</option>
+                    </select>
+                </div>
+            </div>
+            <button class="btn btn-outline-primary" style="margin-top:20px;">Tìm kiếm</button>
+
+        </form>
+        <a href="/doctor/home" class="btn btn-primary" style="margin-top: 20px;">Trang quản lí bác sĩ</a>
+        <table border="1" class="table" style="margin-top: 50px;">
+            <thead>
+                <tr>
+                    <th scope="col">Mã bệnh nhân</th>
+                    <th scope="col">Họ và tên</th>
+                    <th scope="col">Cccd</th>
+                    <th scope="col">Ngày sinh</th>
+                    <th scope="col">Số điện thoại</th>
+                    <th scope="col">Giới tính</th>
+                    <th scope="col">Email</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr th:each="doctor : ${list}">
+                    <td th:text="${doctor.maDinhDanh}"></td>
+                    <td th:text="${doctor.tenBacSi}"></td>
+                    <td th:text="${doctor.tuoi}"></td>
+                    <td th:text="${doctor.chucDanh}"></td>
+                    <td th:text="${doctor.sdt}"></td>
+                    <td><a th:href="@{'/doctor/edit/' + ${doctor.maDinhDanh}}">Edit</a></td>
+                    <td><a href="#">Delete</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
